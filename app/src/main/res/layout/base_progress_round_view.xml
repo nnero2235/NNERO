@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <app:com.nnero.nnero.views.state.ProgressRoundView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_centerInParent="true"
+        android:id="@+id/progress_round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:duration="1000"
+        app:bgColor="#ff808080"
+        app:mainColor="#ff2d6f"
+        app:radius="20dp"
+        app:imageSrc="@drawable/fav_del" />
+</RelativeLayout>

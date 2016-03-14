@@ -1,0 +1,1 @@
+APP_ABI := armeabi-v7a armeabi x86 x86_64 //指定编译平台 all指所有平台 包括mips系列
