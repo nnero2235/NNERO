@@ -52,4 +52,9 @@ public class Repo implements Serializable{
         this.full_name = obj.optString("full_name");
         this.isPrivate = obj.optBoolean("private");
     }
+
+    @Override
+    public String toString() {
+        return "["+name+"]";
+    }
 }

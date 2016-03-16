@@ -10,9 +10,32 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        buildConfigField "int","IMAGE_LOADER","1"//1是imageLoader 2是glide
+        buildConfigField "int","NETWORK","2"//1是retrofit 2是asynctask
     }
+
+    signingConfigs{
+        debug{
+            storeFile file('/Users/nnero/.android/debug.keystore')
+        }
+    }
+
     buildTypes {
+
+        glide{
+            debuggable = true
+            signingConfig signingConfigs.debug
+            buildConfigField "int","IMAGE_LOADER","2"//1是imageLoader 2是glide
+        }
+
+        imageLoader{
+            debuggable = true
+            signingConfig signingConfigs.debug
+            buildConfigField "int","IMAGE_LOADER","1"//1是imageLoader 2是glide
+        }
+
         release {
+            debuggable = false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -38,5 +61,6 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3' //retrofit json转换器
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3' //http retrofit封装
     compile 'com.google.guava:guava:18.0' //google工具包
+    compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3' //imageLoader
 }

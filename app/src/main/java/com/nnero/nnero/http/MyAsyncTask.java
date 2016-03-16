@@ -5,6 +5,8 @@ import android.os.Build;
 
 import com.nnero.nnero.callback.CallBack;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by nnero on 16/3/11.
  */
@@ -15,6 +17,8 @@ public abstract class MyAsyncTask<T> extends AsyncTask<Void,Void,T> {
     public MyAsyncTask(CallBack<T> callBack){
         this.mCallBack = callBack;
     }
+
+    public MyAsyncTask(){}
 
     public MyAsyncTask doExecute(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
@@ -37,5 +41,6 @@ public abstract class MyAsyncTask<T> extends AsyncTask<Void,Void,T> {
         if(mCallBack != null){
             mCallBack.process(o);
         }
+        EventBus.getDefault().post(o);
     }
 }

@@ -7,4 +7,9 @@
         <attr name="radius" format="dimension"/>
         <attr name="imageSrc" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="MenuView">
+        <attr name="menuIcon" format="reference"/>
+        <attr name="menuName" format="string"/>
+    </declare-styleable>
 </resources>

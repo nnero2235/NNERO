@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NNERO</string>
     <string name="action_settings">Settings</string>
+
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 </resources>

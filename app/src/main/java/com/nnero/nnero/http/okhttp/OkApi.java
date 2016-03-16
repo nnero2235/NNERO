@@ -53,14 +53,16 @@ public class OkApi {
         return RequestBody.create(JSON,json);
     }
 
-    public static Response executeGet(String path) throws IOException {
+    public static com.nnero.nnero.http.okhttp.Response executeGet(String path) throws IOException {
         Request request = new Request.Builder()
                 .get()
                 .url(GITHUB_URL+path)
                 .build();
-        return sOkHttpClient.newCall(request).execute();
+        Response response = sOkHttpClient.newCall(request).execute();
+        return new com.nnero.nnero.http.okhttp.Response(response.isSuccessful(),response.body().string());
     }
 
+    //待修改
     public static Response executePost(String path,RequestBody requestBody) throws IOException {
         Request request = new Request.Builder()
                 .post(requestBody)

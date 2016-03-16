@@ -3,6 +3,7 @@ package com.nnero.nnero.net;
 import com.nnero.nnero.bean.Repo;
 import com.nnero.nnero.http.okhttp.Apis;
 import com.nnero.nnero.http.okhttp.OkApi;
+import com.nnero.nnero.http.okhttp.Response;
 import com.nnero.nnero.util.NLog;
 
 import org.json.JSONArray;
@@ -13,7 +14,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.Response;
 
 /**
  * Created by nnero on 16/3/11.
@@ -30,10 +30,8 @@ public class RepoNet {
         path = prefix + user + suffix;
         try {
             Response response = OkApi.executeGet(path);
-            if(response.isSuccessful()){
-                String json = response.body().string();
-                NLog.d(TAG,json);
-                JSONArray array = new JSONArray(json);
+            if(response.isSuccess()){
+                JSONArray array = new JSONArray(response.getJson());
                 List<Repo> repos = new ArrayList<>();
                 for(int i=0;i<array.length();i++){
                     repos.add(new Repo((JSONObject) array.get(i)));

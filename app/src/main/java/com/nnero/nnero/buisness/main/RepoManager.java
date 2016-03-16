@@ -1,4 +1,4 @@
-package com.nnero.nnero.manager.business;
+package com.nnero.nnero.buisness.main;
 
 import com.nnero.nnero.bean.Repo;
 import com.nnero.nnero.callback.CallBack;
@@ -25,6 +25,15 @@ public class RepoManager {
                     CacheManager.save("repo_list",repoList);
                 }
                 return repoList;
+            }
+        }.doExecute();
+    }
+
+    public static MyAsyncTask requestRepos(){
+        return new MyAsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] params) {
+                return RepoNet.requestRepo("nnero2235");
             }
         }.doExecute();
     }
